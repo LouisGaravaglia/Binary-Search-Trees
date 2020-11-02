@@ -15,6 +15,37 @@ class BinarySearchTree {
    * Returns the tree. Uses iteration. */
 
   insert(val) {
+    const newNode = new Node(val);
+    let currentNode = this.root;
+    
+    if (!this.root) {
+      this.root = newNode;
+      return this;
+    }
+
+    while(true) {
+
+      if ( val < currentNode.val ) {
+
+        if ( currentNode.left === null ) {
+          currentNode.left = newNode;
+          return this;
+        } else {
+          currentNode = currentNode.left;
+        }
+
+      } else if ( val > currentNode.val ) {
+
+        if ( currentNode.right === null ) {
+          currentNode.right = newNode;
+          return this;
+        } else {
+          currentNode = currentNode.right;
+        }
+
+      }
+
+    }
 
   }
 
