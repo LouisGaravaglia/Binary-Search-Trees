@@ -17,7 +17,7 @@ class BinarySearchTree {
   insert(val) {
     const newNode = new Node(val);
     let currentNode = this.root;
-    
+
     if (!this.root) {
       this.root = newNode;
       return this;
@@ -52,7 +52,32 @@ class BinarySearchTree {
   /** insertRecursively(val): insert a new node into the BST with value val.
    * Returns the tree. Uses recursion. */
 
-  insertRecursively(val) {
+  insertRecursively(val, currentNode = this.root) {
+    
+    if (!this.root) {
+      this.root = new Node(val);;
+      return this;
+    }
+
+      if ( val < currentNode.val ) {
+
+        if ( currentNode.left === null ) {
+          currentNode.left = new Node(val);;
+          return this;
+        } 
+
+        return this.insertRecursively(val, currentNode.left);
+
+      } else if ( val > currentNode.val ) {
+
+        if ( currentNode.right === null ) {
+          currentNode.right = new Node(val);;
+          return this;
+        } 
+
+        return this.insertRecursively(val, currentNode.right);
+
+    }
 
   }
 
