@@ -180,31 +180,42 @@ class BinarySearchTree {
    * Return an array of visited nodes. */
 
   bfs() {
+   const toVisit = []
+   const visitedNodes = []
+   toVisit.push(this.root);
 
+   while ( toVisit.length ) {
+     let current = toVisit.shift();
+     visitedNodes.push(current.val);
+     current.left && toVisit.push(current.left);
+     current.right && toVisit.push(current.right);
+   }
+
+   return visitedNodes;
   }
 
-  /** Further Study!
-   * remove(val): Removes a node in the BST with the value val.
-   * Returns the removed node. */
+  // /** Further Study!
+  //  * remove(val): Removes a node in the BST with the value val.
+  //  * Returns the removed node. */
 
-  remove(val) {
+  // remove(val) {
 
-  }
+  // }
 
-  /** Further Study!
-   * isBalanced(): Returns true if the BST is balanced, false otherwise. */
+  // /** Further Study!
+  //  * isBalanced(): Returns true if the BST is balanced, false otherwise. */
 
-  isBalanced() {
+  // isBalanced() {
 
-  }
+  // }
 
-  /** Further Study!
-   * findSecondHighest(): Find the second highest value in the BST, if it exists.
-   * Otherwise return undefined. */
+  // /** Further Study!
+  //  * findSecondHighest(): Find the second highest value in the BST, if it exists.
+  //  * Otherwise return undefined. */
 
-  findSecondHighest() {
+  // findSecondHighest() {
     
-  }
+  // }
 }
 
 module.exports = BinarySearchTree;
